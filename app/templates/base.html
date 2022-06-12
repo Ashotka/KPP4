@@ -3,38 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} - StackOverflow</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <style>
-        .message {
-            padding: 10px;
-            margin: 5px;
- 
-        }
-        nav a {
-            color: #786fa3;
-            font-size: 2em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-
-        .alert {
-            padding: 20px;
-            margin: 5px;
-            color: #970020;
-            background-color: #ffd5de;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav>
+<body class="min-h-screen bg-gray-200">
+    <nav class="m-3 p-3 rounded-lg bg-white max-w-sm mx-auto">
         <a href="{{ url_for('index') }}">Overflow</a>
         <a href="{{ url_for('create') }}">Добавити повідомлення</a>
         
     </nav>
-    <hr>
-    <div class="content">
+    <div class="m-3 p-3 rounded-lg bg-white max-w-sm mx-auto text-md font-bold">
         {% for message in get_flashed_messages() %}
-            <div class="alert">{{ message }}</div>
+            <div class="text-xl font-bold">{{ message }}</div>
         {% endfor %}
         {% block content %} {% endblock %}
     </div>
